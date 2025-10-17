@@ -1,4 +1,4 @@
-// import React from 'react'
+
 
 import BestSelling from "../components/BestSelling";
 import Hero from "../components/Hero";
@@ -10,7 +10,6 @@ const Home = () => {
     <Hero/>
     <NewArrivals />
     <BestSelling />
-
     </main>
   )
 };
