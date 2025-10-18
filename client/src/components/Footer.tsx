@@ -2,8 +2,10 @@
 const Footer = () => {
   return (
     <>
-      <footer className="px-6 md:px-16 lg:px-24 xl:px-32 w-full text-sm text-slate-500 bg-white pt-10">
+      <footer className="mx-6 bg-white">
         <div className="max-w-7xl mx-auto">
+        
+        <div className="">
         
         <div className="  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-14">
           <div className="sm:col-span-2 lg:col-span-1">
@@ -97,6 +99,8 @@ const Footer = () => {
           <a href="https://www.gleidsonfagno.com.br/">Gleidson Fagno</a> All
           Right Reserved.
         </p>
+
+        </div>
 
         </div>
       </footer>
