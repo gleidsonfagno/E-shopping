@@ -7,7 +7,7 @@ function ProductDetails() {
 
   const { id } = useParams();
   const { products } = useAppContext();
-  const [thumbnail, setThumbnail] = useState(null);
+  const [thumbnail, setThumbnail] = useState<string | null>(null);
   const product = products.find((item) => item.id === id);
 
   // useEffect(() => {
@@ -21,7 +21,7 @@ function ProductDetails() {
   // }, [products]);
 
   useEffect(() => {
-    setThumbnail(product?.images[0] ? product.images[0] : string);
+    setThumbnail(product?.images[0] ? product.images[0] : "");
   }, [product]);
   
   if (!product) return <p>Produto não encontrado</p>;
@@ -59,7 +59,7 @@ function ProductDetails() {
 
             <div className="border border-gray-500/30 max-w-100 rounded overflow-hidden">
               <img
-                src={thumbnail}
+                src={thumbnail || ""}
                 alt="Selected product"
                 className="w-full h-full object-cover"
               />
