@@ -14,6 +14,12 @@ export interface Product {
   updatedAt: string;
 }
 
+export interface User {
+  name: string;
+  email: string;
+  password: string;
+}
+
 // export interface Store {
 //   id: string;
 //   userId: string;

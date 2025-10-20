@@ -20,7 +20,6 @@ function ProductDetails() {
   //   }
   // }, [products]);
 
-  // const [thumbnail, setThumbnail] = React.useState(product.images[0]);
   useEffect(() => {
     setThumbnail(product?.images[0] ? product.images[0] : string);
   }, [product]);

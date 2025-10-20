@@ -1,28 +1,35 @@
-import { useEffect, useState} from 'react'
-import { useNavigate } from "react-router-dom"
-import { productDummyData } from "../assets/assets" 
-import { AppContext } from './AppContext';
-import type { Product } from '../types/product';
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { productDummyData } from "../assets/assets";
+import { AppContext } from "./AppContext";
+import type { Product, User } from "../types/product";
 
+export const AppContextProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
+  const navigate = useNavigate();
+  const [products, setProducts] = useState<Product[]>([]);
+  const [user, setUser] = useState<User | null>(null);
 
+  const [showUserLogin, setShowUserLogin] = useState(false);
 
-export const AppContextProvider  = ({children}: {children: React.ReactNode}) => {
+  // fetch dos dados
+  const fetchProducts = () => {
+    setProducts(productDummyData);
+  };
+  useEffect(() => {
+    fetchProducts();
+  }, []);
 
-    const [products, setProducts] = useState<Product[]>([])
-    const navigate = useNavigate()
-
-    // fetch dos dados 
-    const fetchProducts = () => {
-        setProducts(productDummyData)
-    }
-    useEffect(() => {
-        fetchProducts()
-    },[])
-    
-    const value = {
-        products,
-        navigate,
-    }
-  return <AppContext.Provider value={value}>{children} </AppContext.Provider>
-}
-
+  const value = {
+    products,
+    navigate,
+    user,
+    setUser,
+    showUserLogin,
+    setShowUserLogin,
+  };
+  return <AppContext.Provider value={value}>{children} </AppContext.Provider>;
+};
