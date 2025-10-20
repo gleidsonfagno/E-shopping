@@ -21,7 +21,9 @@ function ProductDetails() {
   // }, [products]);
 
   useEffect(() => {
-    setThumbnail(product?.images[0] ? product.images[0] : "");
+    // setThumbnail(product?.images[0] ? product.images[0] || "");
+    setThumbnail(product?.images[0] || "");
+
   }, [product]);
   
   if (!product) return <p>Produto não encontrado</p>;
